@@ -1,0 +1,416 @@
+/* Estilos para la pantalla de carga */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader {
+    text-align: center;
+}
+
+.loader .logo {
+    width: 150px;
+    height: auto;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Barra de progreso */
+.progress-container {
+    width: 200px;
+    height: 10px;
+    background-color: #ddd;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #4fd8d1;
+    border-radius: 5px;
+}
+
+/* Ocultar preloader cuando esté cargado */
+body.loaded #preloader {
+    display: none;
+}
+
+body.loaded #main-content {
+    display: block;
+}
+
+
+/* Estilos generales */
+html {
+    scroll-behavior: smooth;
+
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #4fd8d1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajusta la altura del logo según tus necesidades */
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul li {
+    margin-left: 20px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+}
+
+ul li a:hover {
+    background-color: #c03232;
+    border-radius: 4px;
+}
+
+/* Estilos del carrusel */
+header {
+    position: relative;
+    width: 100%;
+    max-width: 1400px; /* Ancho fijo de 1100px */
+    height: 760px; /* Altura fija de 760px */
+    margin: 40px auto 0 auto; /* Ajustamos el margen superior a 40px para mayor separación */
+    overflow: hidden;
+    background-color: #f0f0f0; /* Fondo de seguridad en caso de que las imágenes no carguen */
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 100%; /* Ajusta el ancho para contener las imágenes */
+    height: 100%;
+    transition: transform 1s ease;
+}
+
+.slide {
+    width: 100%; /* Cada imagen ocupa el 100% del contenedor */
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    align-items: center;    /* Centrar la imagen verticalmente */
+}
+
+.slide img {
+    max-width: 100%; /* Para asegurarse de que la imagen no se desborde */
+    max-height: 100%; /* Mantener la altura dentro del contenedor */
+    object-fit: cover; /* La imagen cubrirá todo el área del carrusel */
+    display: block;
+}
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navegacion {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+#prev {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+.navegacion:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Estilos para los captions o textos sobre las imágenes */
+.caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(13, 169, 216, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.caption h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.caption p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Estilos de la sección de productos */
+.productos {
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(28, 201, 224, 0.815);
+}
+
+.producto img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Galería de imágenes en grid */
+/* Galería de imágenes */
+.galeria {
+    padding: 20px;
+    text-align: center; /* Centrar el título de la galería */
+}
+
+.galeria h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Grid de la galería con imágenes de igual tamaño que las de productos */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Espacio igual que el de los productos */
+}
+
+.imagen img {
+    width: 80px; /* Igual tamaño que las imágenes de productos */
+    height: 80px; /* Igual altura */
+    object-fit: cover; /* Asegurarse de que la imagen se ajuste bien */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.imagen:hover img {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+/* Efecto de visualización de imágenes en grande */
+.imagen img:hover {
+    opacity: 0.8;
+}
+
+/* Botones */
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ocultar las imágenes extra al cargar la página */
+.extra-images {
+    display: none; /* Oculta las imágenes extra inicialmente */
+}
+
+/* Modal para visualizar imágenes en grande */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 15px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#caption {
+    color: #e9c893;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333; /* Fondo diferente del resto de la página */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-icons {
+    margin-bottom: 20px;
+}
+
+.footer-icons .icon {
+    margin: 0 10px;
+    font-size: 30px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.footer-icons .icon:hover {
+    color: #00aced; /* Cambia el color al pasar el cursor */
+}
+
+.footer-text {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.footer-text a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: #00aced; /* Cambia el color al pasar el cursor sobre el enlace */
+}
+
